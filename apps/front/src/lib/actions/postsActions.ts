@@ -63,8 +63,6 @@ export async function saveNewPost(
   const validatedFields = PostFormSchema.safeParse(
     Object.fromEntries(formData.entries())
   );
-  // console.log('validatedFields for know resulting ', validatedFields.data);
-  // console.log('formData for know resulting ', formData);
 
   if (!validatedFields.success)
     return {
@@ -84,7 +82,6 @@ export async function saveNewPost(
       thumbnail: thumbnailUrl,
     },
   });
-  console.log('data for know resulting ', data);
 
   if (data) return { message: 'Success! New Post Saved', ok: true };
   return {
@@ -100,7 +97,6 @@ export async function updatePost(
   const validatedFields = PostUpdateFormSchema.safeParse(
     Object.fromEntries(formData.entries())
   );
-  console.log('validatedFields for know uodating  ', validatedFields);
 
   if (!validatedFields.success)
     return {
@@ -121,7 +117,6 @@ export async function updatePost(
       ...(thumbnailUrl && { thumbnail: thumbnailUrl }),
     },
   });
-  console.log('data for know uodating  ', data);
 
   if (data) return { message: 'Success! The Post Updated', ok: true };
   return {

@@ -59,7 +59,6 @@ export class PostResolver {
     @Args('createPostInput') createPostInput: CreatePostInput,
   ) {
     const authorId = context.req.user.id;
-    console.log('createPostInput resolver', createPostInput);
 
     return this.postService.create({ createPostInput, authorId });
   }

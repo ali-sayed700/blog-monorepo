@@ -83,8 +83,6 @@ export class PostService {
     createPostInput: CreatePostInput;
     authorId: number;
   }) {
-    console.log('createPostInput services', createPostInput);
-
     return await this.prisma.post.create({
       data: {
         ...createPostInput,

@@ -14,7 +14,7 @@ function generateSlug(title: string): string {
 }
 
 async function main() {
-    const defaultPassword = await hash('123');
+  const defaultPassword = await hash('123');
   const users = Array.from({ length: 10 }).map(() => ({
     name: faker.person.fullName(),
     email: faker.internet.email(),

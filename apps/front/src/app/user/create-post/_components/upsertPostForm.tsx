@@ -16,12 +16,14 @@ type Props = {
 const UpsertPostForm = ({ state, formAction }: Props) => {
   const [imageUrl, setImageUrl] = useState('');
 
-
   useEffect(() => {
     if (state?.message)
       toast(state?.ok ? 'Success' : 'Oops', {
         description: state?.message,
       });
+    if (state?.ok || state?.errors) {
+      setImageUrl('');
+    }
   }, [state]);
 
   return (
