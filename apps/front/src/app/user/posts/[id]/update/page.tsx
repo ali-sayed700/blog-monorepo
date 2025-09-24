@@ -1,10 +1,10 @@
-import { fetchPostById } from "@/lib/actions/postsActions";
-import UpdatePostContainer from "./_components/UpdatePostContainer";
+import { fetchPostById } from '@/lib/actions/postsActions';
+import UpdatePostContainer from './_components/UpdatePostContainer';
 
 type Props = {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 };
 const UpdatePostPage = async (props: Props) => {
   const params = await props.params;

@@ -1,25 +1,25 @@
-"use client";
+'use client';
 
-import SubmitButton from "@/components/SubmitBtn";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { PostFormState } from "@/lib/types/formState";
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import { toast } from "sonner"
+import SubmitButton from '@/components/SubmitBtn';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { PostFormState } from '@/lib/types/formState';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { toast } from 'sonner';
 
 type Props = {
   state: PostFormState;
   formAction: (payload: FormData) => void;
 };
 const UpsertPostForm = ({ state, formAction }: Props) => {
-  const [imageUrl, setImageUrl] = useState("");
-    
-  
+  const [imageUrl, setImageUrl] = useState('');
+
+
   useEffect(() => {
     if (state?.message)
-      toast( state?.ok ? "Success" : "Oops",{
+      toast(state?.ok ? 'Success' : 'Oops', {
         description: state?.message,
       });
   }, [state]);
@@ -29,7 +29,7 @@ const UpsertPostForm = ({ state, formAction }: Props) => {
       action={formAction}
       className="flex flex-col gap-5 [&>div>label]:text-slate-500 [&>div>input]:transition [&>div>textarea]:transition"
     >
-      <input hidden name="postId" defaultValue={state?.data?.postId} />
+      <input name="postId" defaultValue={state?.data?.postId} />
       <div>
         <Label htmlFor="title">Title</Label>
         <Input
@@ -70,7 +70,7 @@ const UpsertPostForm = ({ state, formAction }: Props) => {
         )}
         {(!!imageUrl || !!state?.data?.previousThumbnailUrl) && (
           <Image
-            src={(imageUrl || state?.data?.previousThumbnailUrl) ?? ""}
+            src={(imageUrl || state?.data?.previousThumbnailUrl) ?? ''}
             alt="post thumbnail"
             width={200}
             height={150}
@@ -93,7 +93,7 @@ const UpsertPostForm = ({ state, formAction }: Props) => {
           className="mx-2 w-4 h-4"
           type="checkbox"
           name="published"
-          defaultChecked={state?.data?.published === "on" ? true : false}
+          defaultChecked={state?.data?.published === 'on' ? true : false}
         />
         <Label htmlFor="published">Published Now</Label>
       </div>

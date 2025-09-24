@@ -1,25 +1,25 @@
-import { BACKEND_URL } from "@/lib/constants";
-import { createSession } from "@/lib/sessions";
-import { redirect } from "next/navigation";
-import { NextResponse } from "next/server";
+import { BACKEND_URL } from '@/lib/constants';
+import { createSession } from '@/lib/sessions';
+import { redirect } from 'next/navigation';
+import type { NextRequest } from 'next/server';
 
-export async function GET(req: NextResponse) {
+export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
 
-  const accessToken = searchParams.get("accessToken");
-  const userId = searchParams.get("userId");
-  const name = searchParams.get("name");
-  const avatar = searchParams.get("avatar");
+  const accessToken = searchParams.get('accessToken');
+  const userId = searchParams.get('userId');
+  const name = searchParams.get('name');
+  const avatar = searchParams.get('avatar');
 
-  if (!accessToken || !userId || !name) throw new Error("Google oauth failed!");
+  if (!accessToken || !userId || !name) throw new Error('Google oauth failed!');
 
-  const res = await fetch(`${BACKEND_URL}/auth/verify-token`, {
+  const resAuth = await fetch(`${BACKEND_URL}/auth/verify-token`, {
     headers: {
       authorization: `Bearer ${accessToken}`,
     },
   });
 
-  if (res.status === 401) throw new Error("jwt verification failed!");
+  if (resAuth.status === 401) throw new Error('jwt verification failed!');
 
   await createSession({
     user: {
@@ -29,5 +29,5 @@ export async function GET(req: NextResponse) {
     },
     accessToken,
   });
-  redirect("/");
+  redirect('/');
 }

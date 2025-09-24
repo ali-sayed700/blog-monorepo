@@ -1,6 +1,18 @@
-import { z } from "zod";
+import { z } from 'zod';
 
 export const PostFormSchema = z.object({
+  title: z.string().min(5).max(100),
+  content: z.string().min(20),
+  tags: z
+    .string()
+    .min(1)
+    .refine((value) => value.split(',').every((tag) => tag.trim() !== ''))
+    .transform((value) => value.split(',')),
+  thumbnail: z.instanceof(File).optional(),
+  published: z.string().transform((value) => value === 'on'),
+});
+
+export const PostUpdateFormSchema = z.object({
   postId: z
     .string()
     .transform((value) => parseInt(value))
@@ -10,8 +22,8 @@ export const PostFormSchema = z.object({
   tags: z
     .string()
     .min(1)
-    .refine((value) => value.split(",").every((tag) => tag.trim() !== ""))
-    .transform((value) => value.split(",")),
+    .refine((value) => value.split(',').every((tag) => tag.trim() !== ''))
+    .transform((value) => value.split(',')),
   thumbnail: z.instanceof(File).optional(),
-  published: z.string().transform((value) => value === "on"),
+  published: z.string().transform((value) => value === 'on'),
 });

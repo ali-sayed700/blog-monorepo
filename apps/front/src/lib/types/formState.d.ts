@@ -14,9 +14,7 @@ export type SignUpFormState =
     }
   | undefined;
 
-
-
-  export type CreateCommentFormState =
+export type CreateCommentFormState =
   | {
       data?: {
         content?: string;
@@ -30,9 +28,6 @@ export type SignUpFormState =
       open?: boolean;
     }
   | undefined;
-
-
-  
 
 export type PostFormState =
   | {
@@ -58,6 +53,26 @@ export type PostFormState =
     }
   | undefined;
 
+export type PostFormState =
+  | {
+      data?: {
+        postId?: number;
+        title?: string;
+        content?: string;
+        thumbnail?: File | null;
+        tags?: string;
+        published?: string;
+        previousThumbnailUrl?: string;
+      };
 
-
-
+      errors?: {
+        title?: string[];
+        content?: string[];
+        thumbnail?: string[];
+        tags?: string[];
+        isPublished?: string[];
+      };
+      message?: string;
+      ok?: boolean;
+    }
+  | undefined;

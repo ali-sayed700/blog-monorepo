@@ -1,0 +1,60 @@
+
+> front@0.1.0 build
+> next build
+
+   ▲ Next.js 15.2.2
+   - Environments: .env
+
+   Creating an optimized production build ...
+
+
+Retrying 1/3...
+
+
+Retrying 1/3...
+
+
+Retrying 1/3...
+
+
+Retrying 2/3...
+ ✓ Compiled successfully
+   Linting and checking validity of types ...
+ ⨯ ESLint: Plugin "next" not found.
+   Collecting page data ...
+   Generating static pages (0/11) ...
+   Generating static pages (2/11) 
+   Generating static pages (5/11) 
+   Generating static pages (8/11) 
+ ✓ Generating static pages (11/11)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                 Size  First Load JS
+┌ ƒ /                                      184 B         109 kB
+├ ƒ /_not-found                            975 B         102 kB
+├ ƒ /api/auth/google/callback              150 B         101 kB
+├ ƒ /api/auth/signout                      150 B         101 kB
+├ ƒ /auth/signin                         2.61 kB         115 kB
+├ ƒ /auth/signup                         2.72 kB         115 kB
+├ ƒ /blog/[slug]/[id]                    11.9 kB         152 kB
+├ ƒ /user/create-post                      393 B         128 kB
+├ ƒ /user/posts                          3.79 kB         135 kB
+├ ƒ /user/posts/(.)[id]/delete           5.05 kB         124 kB
+├ ƒ /user/posts/[id]/delete              1.41 kB         114 kB
+└ ƒ /user/posts/[id]/update                528 B         128 kB
++ First Load JS shared by all             101 kB
+  ├ chunks/315-c661776f6ba1a169.js       45.7 kB
+  ├ chunks/87c73c54-788ae05e83f4ab97.js  53.2 kB
+  └ other shared chunks (total)          1.98 kB
+
+
+ƒ Middleware                             43.5 kB
+
+ƒ  (Dynamic)  server-rendered on demand
+
+npm notice
+npm notice New minor version of npm available! 11.5.2 -> 11.6.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.6.0
+npm notice To update run: npm install -g npm@11.6.0
+npm notice

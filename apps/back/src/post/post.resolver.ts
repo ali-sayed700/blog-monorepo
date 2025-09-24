@@ -14,7 +14,6 @@ export class PostResolver {
   // @UseGuards(JwtAuthGuard)
   @Query(() => [Post], { name: 'posts' })
   findAll(
-  
     @Args('skip', { nullable: true }) skip?: number,
     @Args('take', { nullable: true }) take?: number,
   ) {
@@ -31,8 +30,7 @@ export class PostResolver {
     return this.postService.findOne(id);
   }
 
-
-   @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard)
   @Query(() => [Post])
   getUserPosts(
     @Context() context,
@@ -61,6 +59,7 @@ export class PostResolver {
     @Args('createPostInput') createPostInput: CreatePostInput,
   ) {
     const authorId = context.req.user.id;
+    console.log('createPostInput resolver', createPostInput);
 
     return this.postService.create({ createPostInput, authorId });
   }

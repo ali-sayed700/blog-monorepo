@@ -1,9 +1,9 @@
 import {
-    Dialog,
+  Dialog,
   DialogContent,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
+} from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
@@ -12,9 +12,9 @@ import { SessionUser } from '@/lib/sessions';
 import { QueryObserverResult, RefetchOptions } from '@tanstack/react-query';
 import { CommentEntity } from '@/lib/types/modelTypes';
 import { cn } from '@/lib/utils';
-import { toast } from "sonner"
-import { saveComment } from "@/lib/actions/commentActions";
-import { useActionState, useEffect } from "react";
+import { toast } from 'sonner';
+import { saveComment } from '@/lib/actions/commentActions';
+import { useActionState, useEffect } from 'react';
 
 type Props = {
   postId: number;
@@ -31,38 +31,33 @@ type Props = {
   >;
 };
 
-
-const AddComment =(props: Props) => {
-
-
-  
-     const [state, action] = useActionState(saveComment, undefined);
-
-  
-     
-
+const AddComment = (props: Props) => {
+  const [state, action] = useActionState(saveComment, undefined);
 
   useEffect(() => {
     if (state?.message)
-      toast(state?.ok ? "Success" : "Oops!", {description: state?.message,  action: {
-            label: "Undo",
-            onClick: () => console.log("Undo"),
-          },})
+      toast(state?.ok ? 'Success' : 'Oops!', {
+        description: state?.message,
+        action: {
+          label: 'Undo',
+          onClick: () => console.log('Undo'),
+        },
+      });
     //   toast({
     //     title: state?.ok ? "Success" : "Oops!",
     //     description: state?.message,
     //   });
     if (state?.ok) props.refetch();
-  }, [state]);
+  }, [props, state]);
   return (
     <Dialog open={state?.open}>
-             <DialogTrigger asChild>
+      <DialogTrigger asChild>
         <Button>Leave Your Comment</Button>
       </DialogTrigger>
-            <DialogContent>
-               <DialogTitle>Write Your Comment</DialogTitle>
+      <DialogContent>
+        <DialogTitle>Write Your Comment</DialogTitle>
 
-                <form  action={action}  className={cn(props.className)}>
+        <form action={action} className={cn(props.className)}>
           <input hidden name="postId" defaultValue={props.postId} />
           <Label htmlFor="comment">Your Comment</Label>
           <div className="border-t border-x rounded-t-md">
@@ -82,10 +77,9 @@ const AddComment =(props: Props) => {
           </p>
           <SubmitButton className="mt-2">Submit</SubmitButton>
         </form>
-            </DialogContent>
+      </DialogContent>
     </Dialog>
-  )
-}
+  );
+};
 
-export default AddComment
-
+export default AddComment;

@@ -1,19 +1,18 @@
-import { fetchPostById } from "@/lib/actions/postsActions";
-import Image from "next/image";
-import SanitizedContent from "./_components/SanitizedContent";
-import Comments from "./_components/comments";
-import { getSession } from "@/lib/sessions";
-import Like from "./_components/like";
+import { fetchPostById } from '@/lib/actions/postsActions';
+import Image from 'next/image';
+import SanitizedContent from './_components/SanitizedContent';
+import Comments from './_components/comments';
+import { getSession } from '@/lib/sessions';
+import Like from './_components/like';
 type Props = {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 };
 
 const PostPage = async ({ params }: Props) => {
-  const {id } = await params
+  const { id } = await params;
 
-  
   const post = await fetchPostById(+id);
   const session = await getSession();
   return (
@@ -25,7 +24,7 @@ const PostPage = async ({ params }: Props) => {
 
       <div className="relative w-80 h-60">
         <Image
-          src={post.thumbnail ?? "/no-image.png"}
+          src={post.thumbnail ?? '/no-image.png'}
           alt={post.title}
           fill
           className="rounded-md object-cover"
@@ -36,10 +35,8 @@ const PostPage = async ({ params }: Props) => {
 
       <Like postId={post.id} user={session?.user} />
       {/* Todo: Put the Post Comments Here */}
-  
-  <Comments user={session?.user} postId={post.id} />
-    
- 
+
+      <Comments user={session?.user} postId={post.id} />
     </main>
   );
 };

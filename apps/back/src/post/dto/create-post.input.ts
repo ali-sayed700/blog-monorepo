@@ -6,9 +6,11 @@ export class CreatePostInput {
   @IsString()
   @Field()
   title: string;
+
   @IsString()
   @Field()
   content: string;
+
   @IsString()
   @IsOptional()
   @Field({ nullable: true })

@@ -1,4 +1,5 @@
-import React from "react";
+import Image from 'next/image';
+import React from 'react';
 
 export const Hero = () => {
   return (
@@ -22,10 +23,13 @@ export const Hero = () => {
         {/* right col */}
 
         <div className="w-full flex justify-center text-center py-7 md:w-3/5">
-          <img
+          <Image
             src="/hero.png"
             alt="hero section"
             className="w-full md:w-3/5  "
+            // sizes="w-full md:w-3/5"
+            width={800}
+            height={800}
           />
         </div>
       </div>

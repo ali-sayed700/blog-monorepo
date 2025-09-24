@@ -1,25 +1,26 @@
-"use client";
+'use client';
 
-import UpsertPostForm from "@/app/user/create-post/_components/upsertPostForm";
-import { saveNewPost, updatePost } from "@/lib/actions/postsActions";
-import { Post } from "@/lib/types/modelTypes";
-import { useActionState } from "react";
+import UpsertPostForm from '@/app/user/create-post/_components/upsertPostForm';
+import { updatePost } from '@/lib/actions/postsActions';
+import { Post } from '@/lib/types/modelTypes';
+import { useActionState } from 'react';
 
 type Props = {
   post: Post;
 };
 const UpdatePostContainer = ({ post }: Props) => {
-
   const [state, action] = useActionState(updatePost, {
     data: {
       postId: post.id,
       title: post.title,
       content: post.content,
-      published: post.published ? "on" : undefined,
-      tags: post.tags?.map((tag) => tag.name).join(","),
+      published: post.published ? 'on' : undefined,
+      tags: post.tags?.map((tag) => tag.name).join(','),
       previousThumbnailUrl: post.thumbnail ?? undefined,
     },
   });
+  console.log('front end ', post.id);
+
   return <UpsertPostForm state={state} formAction={action} />;
 };
 
