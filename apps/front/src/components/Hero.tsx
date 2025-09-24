@@ -12,7 +12,7 @@ export const Hero = () => {
             yours
           </p>
           <h2 className="my-5 text-5xl font-bold leading-tight">
-            Welcome To Sakura Dev Blog
+            Welcome To world
           </h2>
 
           <p className="capitalize leading-normal text-xl">
