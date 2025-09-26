@@ -17,6 +17,7 @@
   "license": "ISC",
   "devDependencies": {
     "eslint": "^9.35.0",
+    "eslint-plugin-next": "^0.0.0",
     "turbo": "^2.4.4"
   },
   "eslintConfig": {
