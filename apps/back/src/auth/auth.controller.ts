@@ -19,7 +19,7 @@ export class AuthController {
     const userData = await this.authService.signIn(req.user);
 
     res.redirect(
-      `http://localhost:3000/api/auth/google/callback?userId=${userData.id}&name=${userData.name}&avatar=${userData.avatar}&accessToken=${userData.accessToken}`,
+      `https://foentend-monorepo-blog.vercel.app/api/auth/google/callback?userId=${userData.id}&name=${userData.name}&avatar=${userData.avatar}&accessToken=${userData.accessToken}`,
     );
   }
 
