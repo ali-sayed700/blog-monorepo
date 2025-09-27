@@ -1,4 +1,4 @@
-export default function Error({
+export default function GlobalError({
   error,
   reset,
 }: {
@@ -6,17 +6,14 @@ export default function Error({
   reset: () => void;
 }) {
   return (
-    <div>
-      <h2>Something went wrong!</h2>
-      <pre>{error.message}</pre>
-      <button
-        onClick={
-          // Attempt to recover by trying to re-render the segment
-          () => reset()
-        }
-      >
-        Try again
-      </button>
-    </div>
+    // global-error must include html and body tags
+    <html>
+      <body>
+        <h2>Something went wrong!</h2>
+        <pre>{error.message}</pre>
+        {error.digest && <pre>{error.digest}</pre>}
+        <button onClick={() => reset()}>Try again</button>
+      </body>
+    </html>
   );
 }
