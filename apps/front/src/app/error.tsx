@@ -1,20 +1,21 @@
-'use client';
+'use client'; // Error boundaries must be Client Components
 
-export default function GlobalError({
-  error,
-  reset,
-}: {
-  error: Error & { digest?: string };
-  reset: () => void;
-}) {
+export default function GlobalError() {
   return (
-    // global-error must include html and body tags
-    <html>
+    <html lang="en">
       <body>
-        <h2>Something went wrong!</h2>
-        <pre>{error.message}</pre>
-        {error.digest && <pre>{error.digest}</pre>}
-        <button onClick={() => reset()}>Try again</button>
+        <div className="flex flex-col items-center justify-center min-h-screen">
+          <h2 className="text-2xl font-bold mb-4">Something went wrong!</h2>
+          <button
+            onClick={() => {
+              // refresh the page
+              window.location.reload();
+            }}
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Refresh
+          </button>
+        </div>
       </body>
     </html>
   );
