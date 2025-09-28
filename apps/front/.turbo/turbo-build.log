@@ -2,13 +2,12 @@
 > front@0.1.0 build
 > next build
 
-   ▲ Next.js 15.2.2
+   ▲ Next.js 15.5.4
    - Environments: .env
 
    Creating an optimized production build ...
- ✓ Compiled successfully
+ ✓ Compiled successfully in 29.1s
    Linting and checking validity of types ...
- ⨯ ESLint: Plugin "next" not found.
    Collecting page data ...
    Generating static pages (0/11) ...
    Generating static pages (2/11) 
@@ -19,25 +18,25 @@
    Collecting build traces ...
 
 Route (app)                                 Size  First Load JS
-┌ ƒ /                                      184 B         109 kB
-├ ƒ /_not-found                            975 B         102 kB
-├ ƒ /api/auth/google/callback              150 B         101 kB
-├ ƒ /api/auth/signout                      150 B         101 kB
-├ ƒ /auth/signin                         2.61 kB         115 kB
-├ ƒ /auth/signup                         2.72 kB         115 kB
-├ ƒ /blog/[slug]/[id]                    11.9 kB         152 kB
-├ ƒ /user/create-post                      393 B         128 kB
-├ ƒ /user/posts                          3.79 kB         135 kB
-├ ƒ /user/posts/(.)[id]/delete           5.05 kB         124 kB
-├ ƒ /user/posts/[id]/delete              1.41 kB         114 kB
-└ ƒ /user/posts/[id]/update                528 B         128 kB
-+ First Load JS shared by all             101 kB
-  ├ chunks/315-c661776f6ba1a169.js       45.7 kB
-  ├ chunks/87c73c54-788ae05e83f4ab97.js  53.2 kB
-  └ other shared chunks (total)          1.98 kB
+┌ ƒ /                                      172 B         111 kB
+├ ƒ /_not-found                            985 B         103 kB
+├ ƒ /api/auth/google/callback              138 B         102 kB
+├ ƒ /api/auth/signout                      138 B         102 kB
+├ ƒ /auth/signin                         2.61 kB         117 kB
+├ ƒ /auth/signup                         2.72 kB         117 kB
+├ ƒ /blog/[slug]/[id]                    11.8 kB         153 kB
+├ ƒ /user/create-post                      385 B         129 kB
+├ ƒ /user/posts                          3.77 kB         137 kB
+├ ƒ /user/posts/(.)[id]/delete           5.03 kB         125 kB
+├ ƒ /user/posts/[id]/delete               1.4 kB         115 kB
+└ ƒ /user/posts/[id]/update                508 B         129 kB
++ First Load JS shared by all             102 kB
+  ├ chunks/18-15ddba9c0d5cbf05.js        45.9 kB
+  ├ chunks/87c73c54-24122e7b92478d00.js  54.2 kB
+  └ other shared chunks (total)          1.99 kB
 
 
-ƒ Middleware                             43.5 kB
+ƒ Middleware                             44.8 kB
 
 ƒ  (Dynamic)  server-rendered on demand
 
