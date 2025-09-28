@@ -6,7 +6,7 @@ import { defineConfig } from 'eslint/config';
 export default defineConfig([
   {
     files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-    extends: ['next/core-web-vitals'],
+    extends: ['next', 'next/core-web-vitals'],
     languageOptions: { globals: globals.browser },
   },
   tseslint.configs.recommended,
