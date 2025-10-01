@@ -18,6 +18,7 @@ import { ConfigModule } from '@nestjs/config';
     GraphQLModule.forRoot<ApolloDriverConfig>({
       path: '/graphql',
       driver: ApolloDriver,
+      csrfPrevention: false,
       autoSchemaFile: join(process.cwd(), 'src/graphql/schema.gql'),
     }),
     PrismaModule,
