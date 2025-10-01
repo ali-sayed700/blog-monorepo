@@ -14,10 +14,21 @@ import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [GraphQLModule.forRoot<ApolloDriverConfig>({
-    driver: ApolloDriver,
-    autoSchemaFile: join(process.cwd(), 'src/graphql/schema.gql'),
-  }),PrismaModule, PostModule, UserModule, CommentModule, TagModule, LikeModule, AuthModule , ConfigModule.forRoot({isGlobal:true})],
+  imports: [
+    GraphQLModule.forRoot<ApolloDriverConfig>({
+      path: '/graphql',
+      driver: ApolloDriver,
+      autoSchemaFile: join(process.cwd(), 'src/graphql/schema.gql'),
+    }),
+    PrismaModule,
+    PostModule,
+    UserModule,
+    CommentModule,
+    TagModule,
+    LikeModule,
+    AuthModule,
+    ConfigModule.forRoot({ isGlobal: true }),
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
