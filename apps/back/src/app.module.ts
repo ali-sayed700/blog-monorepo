@@ -19,6 +19,8 @@ import { ConfigModule } from '@nestjs/config';
       path: '/graphql',
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/graphql/schema.gql'),
+      csrfPrevention: true, // keep enabled in prod
+      playground: true, // disable playground in prod
     }),
     PrismaModule,
     PostModule,
