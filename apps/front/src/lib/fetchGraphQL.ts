@@ -25,6 +25,7 @@ export const authFetchGraphQL = async (query: string, variables = {}) => {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${session?.accessToken}`,
+      'x-apollo-operation-name': 'MyQuery',
     },
     body: JSON.stringify({
       query,
